@@ -5,6 +5,16 @@ export interface Contact_us {
     yourMessage	: string
     date: Date
   }
+
+ export interface visitors_Data{
+  id : number
+  iPaddress : string
+  city : string
+  region : string
+  post_code : number
+  country : string
+  date: Date
+ } 
 export interface editNavItem{
   id : number
   navbarName : string

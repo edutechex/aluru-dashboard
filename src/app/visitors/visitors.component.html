@@ -6,16 +6,16 @@
       <div class="col-8 d-flex">
         <mat-form-field appearance="fill">
           <mat-label>Enter a date range</mat-label>
-          <mat-date-range-input [formGroup]="contactUsSearchDateRange" [rangePicker]="picker">
+          <mat-date-range-input [formGroup]="visitosDateRange" [rangePicker]="picker">
             <input matStartDate formControlName="start" placeholder="Start date">
             <input matEndDate formControlName="end" placeholder="End date">
           </mat-date-range-input>
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-date-range-picker #picker></mat-date-range-picker>
   
-          <mat-error *ngIf="contactUsSearchDateRange.controls.start.hasError('matStartDateInvalid')">Invalid start
+          <mat-error *ngIf="visitosDateRange.controls.start.hasError('matStartDateInvalid')">Invalid start
             date</mat-error>
-          <mat-error *ngIf="contactUsSearchDateRange.controls.end.hasError('matEndDateInvalid')">Invalid end
+          <mat-error *ngIf="visitosDateRange.controls.end.hasError('matEndDateInvalid')">Invalid end
             date</mat-error>
         </mat-form-field>
   
@@ -35,25 +35,33 @@
       </button>
     </div>
   
-    <mat-table #table [dataSource]="contactUsDataSource" matSort>
+    <mat-table #table [dataSource]="visitorsDataSource" matSort>
       <!-- id Column -->
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef mat-sort-header> S.No </mat-header-cell>
         <mat-cell *matCellDef="let i=index"> {{this.paginator.pageIndex * this.paginator.pageSize + i + 1}} </mat-cell>
       </ng-container>
       <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      <ng-container matColumnDef="ip">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> IP </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.iPaddress}} </mat-cell>
       </ng-container>
       <!-- startDate Column -->
-      <ng-container matColumnDef="mailID">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+      <ng-container matColumnDef="city">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> City </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="yourMessage">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Message </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.comment}} </mat-cell>
+      <ng-container matColumnDef="region">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Region </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.region}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="postal">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Postal </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.post_code}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="country">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Country </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.country}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="createdOn">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Created On </mat-header-cell>
@@ -69,10 +77,10 @@
           No data available to show.
         </mat-footer-cell>
       </ng-container>
-      <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':contactUsDataSource!=null}">
+      <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':visitorsDataSource!=null}">
       </mat-footer-row>
       <mat-footer-row *matFooterRowDef="['noData']"
-        [ngClass]="{'hide':!(contactUsDataSource!=null && contactUsDataSource.data.length==0)}">
+        [ngClass]="{'hide':!(visitorsDataSource!=null && visitorsDataSource.data.length==0)}">
       </mat-footer-row>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
@@ -81,3 +89,4 @@
     <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons
       aria-label="Contact Us details page"></mat-paginator>
   </section>
+

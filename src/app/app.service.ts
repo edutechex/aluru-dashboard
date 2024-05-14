@@ -10,7 +10,7 @@ export class AppService {
   patchValue(datas: any) {
     throw new Error('Method not implemented.');
   }
-  baseUrl = "https://api.onnes.in/api";
+  baseUrl = "https://api.alurus.in/api";
 
   public dashboard: boolean = false;
   public contactusForm: boolean = false;
@@ -22,6 +22,7 @@ export class AppService {
   public offering: boolean = false;
   public joinus: boolean = false;
   public cfrp : boolean = false;
+  public visitors : boolean = false;
 
   public signOut: boolean = false;
   public currentUser: any = [];
@@ -42,6 +43,7 @@ export class AppService {
     this.offering = false;
     this.joinus = false;
     this.cfrp = false;
+    this.visitors = false;
 
 
     switch (sectionName) {
@@ -51,6 +53,9 @@ export class AppService {
       case 'contactusForm':
         this.contactusForm = true;
         break;
+      case 'visitors':
+        this.visitors = true;
+        break;  
       case 'navItem':
         this.navItem = true;
         break;
@@ -230,5 +235,10 @@ export class AppService {
   //delete cfrp
   deleteCfrp(id: any) {
     return this.http.delete(`${this.baseUrl}/Offoring_CFRP/${id}`);
+  }
+
+  //get visitors data
+  getVisitorsDetails(){
+    return this.http.get(`${this.baseUrl}/Visitors`);
   }
 }

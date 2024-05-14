@@ -1,16 +1,16 @@
 mat-sidenav {
-    background-color: #1B75BC;
+    background-color: #1b8596;
     width: 18%;
   }
   
   .nav-pills .nav-link.active,
   .nav-pills .show>.nav-link {
-    background-color: #1689e1;
+    background-color: #25b0c6;
     border-radius: 3px;
   }
   
   .nav-link:hover {
-    background-color: #1689e1;
+    background-color: #25b0c6;
   }
   
   ::ng-deep .success-message {

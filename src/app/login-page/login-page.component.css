@@ -3,7 +3,7 @@
 
 .custom-style {
 	/* background: linear-gradient(90deg, #C7C5F4, #776BCC);	 */
-    background: linear-gradient(90deg, #97acbd, #1B75BC);
+    background: linear-gradient(90deg, #97acbd, #1b8596);
     overflow-y: hidden;	
 }
 
@@ -15,7 +15,7 @@
 }
 
 .screen {		
-	background: linear-gradient(90deg, #1B75BC, #1B75BC);		
+	background: linear-gradient(90deg, #1b8596, #1b8596);		
 	position: relative;	
 	height: 600px;
 	width: 360px;	
@@ -56,7 +56,7 @@
 .screen__background__shape2 {
 	height: 220px;
 	width: 220px;
-	background: #378ac9;	
+	background: #0f8b9e;	
 	top: -172px;
 	right: 0;	
 	border-radius: 32px;
@@ -65,7 +65,7 @@
 .screen__background__shape3 {
 	height: 540px;
 	width: 190px;
-	background: linear-gradient(270deg, #378ac9, #4897d4);
+	background: linear-gradient(270deg, #0f8b9e, #037688);
 	top: -24px;
 	right: 0;	
 	border-radius: 32px;
@@ -74,7 +74,7 @@
 .screen__background__shape4 {
 	height: 400px;
 	width: 200px;
-	background: #378ac9;	
+	background: #0f8b9e;	
 	top: 420px;
 	right: 50px;	
 	border-radius: 60px;
@@ -97,7 +97,7 @@
 .login__icon {
 	position: absolute;
 	top: 30px;
-	color: #1B75BC;
+	color: #1b8596;
 }
 
 .login__input {
@@ -120,7 +120,7 @@
 .login__input:focus,
 .login__input:hover {
 	outline: none;
-	border-bottom-color: #1B75BC;
+	border-bottom-color: #1b8596;
 }
 
 .login__submit {
@@ -135,8 +135,8 @@
 	display: flex;
 	align-items: center;
 	width: 100%;
-	color: #1B75BC;
-	box-shadow: 0px 2px 2px #1B75BC;
+	color: #1b8596;
+	box-shadow: 0px 2px 2px #1b8596;
 	cursor: pointer;
 	transition: .2s;
 }
@@ -151,7 +151,7 @@
 .button__icon {
 	font-size: 24px;
 	margin-left: auto;
-	color: #1B75BC;
+	color: #1b8596;
 }
 
 .social-login {	
@@ -181,7 +181,7 @@
 	transform: scale(1.5);	
 }
 ::ng-deep .sucess-message{
-	--mdc-snackbar-container-color: #1B75BC !important;
+	--mdc-snackbar-container-color: #1b8596 !important;
 }
 ::ng-deep .error-message{
 	--mdc-snackbar-container-color: rgb(245, 46, 46) !important;
