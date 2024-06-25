@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { addAboutUs, addBlogNews, addCfrp, addHomeImage, addJoinUs, addOffering, addTeam, editAboutUs, editBlogNews, editCfrp, editHomeImage, editJoinUs, editNavItem, editOffering, editTeam } from './app.model';
+import { addAboutUs, addAdvisory, addBlogNews, addCfrp, addHomeImage, addInvestor, addJoinUs, addLetsTalk, addOffering, addPartner, addTeam, editAboutUs, editAdvisory, editBlogNews, editCfrp, editHomeImage, editInvestor, editJoinUs, editLetsTalk, editNavItem, editOffering, editPartner, editTeam } from './app.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,10 @@ export class AppService {
   public joinus: boolean = false;
   public cfrp : boolean = false;
   public visitors : boolean = false;
+  public partner: boolean =false;
+  public investors: boolean = false;
+  public letsTalk: boolean = false;
+  public advisory: boolean = false;
 
   public signOut: boolean = false;
   public currentUser: any = [];
@@ -44,6 +48,10 @@ export class AppService {
     this.joinus = false;
     this.cfrp = false;
     this.visitors = false;
+    this.partner = false;
+    this.investors = false;
+    this.letsTalk = false;
+    this.advisory = false;
 
 
     switch (sectionName) {
@@ -68,6 +76,15 @@ export class AppService {
       case 'team':
         this.team = true;
         break;
+      case 'advisory':
+        this.advisory = true;
+        break;  
+      case 'partner':
+        this.partner = true;
+        break; 
+      case 'investors':
+        this.investors = true;
+        break;   
       case 'blogNews':
         this.blogNews = true;
         break;
@@ -80,7 +97,9 @@ export class AppService {
       case 'joinus':
         this.joinus = true;
         break;
-      
+      case 'letsTalk':
+        this.letsTalk = true;
+        break;
     }
   }
 
@@ -235,6 +254,74 @@ export class AppService {
   //delete cfrp
   deleteCfrp(id: any) {
     return this.http.delete(`${this.baseUrl}/Offoring_CFRP/${id}`);
+  }
+
+  // add partner
+  addPartner(partner: addPartner){
+    return this.http.post(`${this.baseUrl}/Partner`,partner);
+  }
+  // get partner
+  getPartner(){
+    return this.http.get(`${this.baseUrl}/Partner`);
+  }
+  // update partner
+  updatepartner(partner : editPartner){
+    return this.http.put(`${this.baseUrl}/Partner/${partner.id}`,partner);
+  }
+  //delete partner
+  deletePartner(id: number){
+    return this.http.delete(`${this.baseUrl}/Partner/${id}`);
+  }
+
+  // add Investor
+  addInvestor(Investor: addInvestor){
+    return this.http.post(`${this.baseUrl}/Investors`,Investor);
+  }
+  // get Investor
+  getInvestor(){
+    return this.http.get(`${this.baseUrl}/Investors`);
+  }
+  // update Investor
+  updateInvestor(Investor : editInvestor){
+    return this.http.put(`${this.baseUrl}/Investors/${Investor.id}`,Investor);
+  }
+  //delete Investor
+  deleteInvestor(id: number){
+    return this.http.delete(`${this.baseUrl}/Investors/${id}`);
+  }
+
+  // add LetsTalk
+  addLetsTalk(talk : addLetsTalk){
+    return this.http.post(`${this.baseUrl}/Let_sTalk`,talk);
+  }
+  //get LetsTalk
+  getLetsTalk(){
+    return this.http.get(`${this.baseUrl}/Let_sTalk`);
+  }
+  //update LetsTalk
+  updateLetsTalk(talk: editLetsTalk){
+    return this.http.put(`${this.baseUrl}/Let_sTalk/${talk.id}`,talk);
+  }
+  //delete LetsTalk
+  deleteLetsTalk(id: number){
+    return this.http.delete(`${this.baseUrl}/Let_sTalk/${id}`);
+  }
+
+  // add advisory
+  addAdvisory(advisory : addAdvisory){
+    return this.http.post(`${this.baseUrl}/Advisory`,advisory);
+  }
+  //get advisory
+  getAdvisory(){
+    return this.http.get(`${this.baseUrl}/advisory`);
+  }
+  //update advisory
+  updateAdvisory(adv: editAdvisory){
+    return this.http.put(`${this.baseUrl}/advisory/${adv.id}`,adv);
+  }
+  //delete advisory
+  deleteAdvisory(id: number){
+    return this.http.delete(`${this.baseUrl}/advisory/${id}`);
   }
 
   //get visitors data

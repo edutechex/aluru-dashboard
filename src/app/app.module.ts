@@ -40,6 +40,14 @@ import { CfrpVesselsComponent } from './content-upload/offering/cfrp-vessels/cfr
 import { AddOrEditCfrpComponent } from './content-upload/offering/cfrp-vessels/add-or-edit-cfrp/add-or-edit-cfrp.component';
 import { MatSelectModule } from '@angular/material/select';
 import { VisitorsComponent } from './visitors/visitors.component';
+import { PartnerComponent } from './content-upload/partner/partner.component';
+import { AddOrEditPartnerComponent } from './content-upload/partner/add-or-edit-partner/add-or-edit-partner.component';
+import { InvestorsComponent } from './content-upload/investors/investors.component';
+import { AddOrEditInvestorsComponent } from './content-upload/investors/add-or-edit-investors/add-or-edit-investors.component';
+import { LetsTalkComponent } from './content-upload/lets-talk/lets-talk.component';
+import { AddOrEditTalkComponent } from './content-upload/lets-talk/add-or-edit-talk/add-or-edit-talk.component';
+import { AdvisoryComponent } from './content-upload/team/advisory/advisory.component';
+import { AddOrEditAdvisoryComponent } from './content-upload/team/advisory/add-or-edit-advisory/add-or-edit-advisory.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +72,15 @@ import { VisitorsComponent } from './visitors/visitors.component';
     AddOrEditHomeImageComponent,
     CfrpVesselsComponent,
     AddOrEditCfrpComponent,
-    VisitorsComponent
+    VisitorsComponent,
+    PartnerComponent,
+    AddOrEditPartnerComponent,
+    InvestorsComponent,
+    AddOrEditInvestorsComponent,
+    LetsTalkComponent,
+    AddOrEditTalkComponent,
+    AdvisoryComponent,
+    AddOrEditAdvisoryComponent
   ],
   imports: [
     BrowserModule,

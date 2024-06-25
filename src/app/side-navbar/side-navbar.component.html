@@ -20,11 +20,11 @@
             </li>
 
             <li class="nav-item mb-3"><a href="javascript: void(0)" (click)="appService.openSection('visitors');"
-                class="nav-link text-white d-flex align-items-center" id="course-pills-tab-1" data-bs-toggle="pill"
-                data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1"
-                aria-selected="true">
-                <mat-icon class="fs-2"> import_contacts </mat-icon><span class="ps-4 mt-2">Visitors</span></a>
-        </li>
+                    class="nav-link text-white d-flex align-items-center" id="course-pills-tab-1" data-bs-toggle="pill"
+                    data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1"
+                    aria-selected="true">
+                    <mat-icon class="fs-2"> import_contacts </mat-icon><span class="ps-4 mt-2">Visitors</span></a>
+            </li>
 
             <li class="nav-item mb-3"><a href="javascript: void(0)" (click)="appService.openSection('navItem');"
                     class="nav-link text-white d-flex align-items-center" id="course-pills-tab-1" data-bs-toggle="pill"
@@ -41,17 +41,57 @@
                     data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1"
                     aria-selected="false">
                     <mat-icon class="fs-2"> description </mat-icon><span class="ps-4 pb-1">About Us</span></a></li>
-            <li class="nav-item mb-3"><a href="javascript: void(0)" (click)="appService.openSection('team');"
-                    class="nav-link text-white d-flex align-items-center" id="course-pills-tab-1" data-bs-toggle="pill"
-                    data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1"
-                    aria-selected="false">
-                    <mat-icon class="fs-2"> group_work </mat-icon><span class="ps-4 pb-1">Team</span></a></li>
-            <!-- <li class="nav-item mb-3"><a href="javascript: void(0)" (click)="appService.openSection('offering');"
-                class="nav-link text-white d-flex align-items-center" id="course-pills-tab-1" data-bs-toggle="pill"
-                data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1"
-                aria-selected="false">
-                <mat-icon class="fs-2"> picture_in_picture</mat-icon><span class="ps-4 pb-1">Offering </span></a></li> -->
-            <!-- Tab item -->
+            <li class="nav-item mb-3">
+                <a class="nav-link text-white d-flex justify-content-between" data-bs-toggle="collapse"
+                    href="#collapsepage3" role="button" aria-expanded="false" aria-controls="1">
+                    <div class="d-flex"><mat-icon class="fs-2">group_work</mat-icon> <span class="ps-4">Teams</span>
+                    </div>
+                    <div><mat-icon>keyboard_arrow_down</mat-icon></div>
+                </a>
+                <ul class="nav collapse flex-column mt-2  ms-3" id="collapsepage3" data-bs-parent="#navbar-sidebar"
+                    style="background-color: #7e94a5;">
+                    <li class="nav-item mb-3"><a href="javascript: void(0)" (click)="appService.openSection('team');"
+                            class="nav-link text-white d-flex align-items-center" id="course-pills-tab-1"
+                            data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab"
+                            aria-controls="course-pills-tabs-1" aria-selected="false">
+                            <mat-icon class="fs-2"> group_work </mat-icon><span class="ps-4 pb-1">Founder</span></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="javascript: void(0)" (click)="appService.openSection('advisory');"
+                            class="nav-link text-white d-flex align-items-center" id="course-pills-tab-1"
+                            data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab"
+                            aria-controls="course-pills-tabs-1" aria-selected="false">
+                            <mat-icon class="fs-5"> picture_in_picture</mat-icon><span class="ps-4 pb-1">Advisory
+                            </span></a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="nav-item mb-3">
+                <a class="nav-link text-white d-flex justify-content-between" data-bs-toggle="collapse"
+                    href="#collapsepage4" role="button" aria-expanded="false" aria-controls="1">
+                    <div class="d-flex"><mat-icon class="fs-2">Partner</mat-icon> <span class="ps-4">Partner</span>
+                    </div>
+                    <div><mat-icon>keyboard_arrow_down</mat-icon></div>
+                </a>
+                <ul class="nav collapse flex-column mt-2  ms-3" id="collapsepage4" data-bs-parent="#navbar-sidebar"
+                    style="background-color: #7e94a5;">
+                    <li class="nav-item mb-3"><a href="javascript: void(0)" (click)="appService.openSection('partner');"
+                            class="nav-link text-white d-flex align-items-center" id="course-pills-tab-1"
+                            data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab"
+                            aria-controls="course-pills-tabs-1" aria-selected="false">
+                            <mat-icon class="fs-2"> picture_in_picture</mat-icon><span class="ps-4 pb-1">Partner
+                            </span></a></li>
+                    <li class="nav-item mb-3"><a href="javascript: void(0)"
+                            (click)="appService.openSection('investors');"
+                            class="nav-link text-white d-flex align-items-center" id="course-pills-tab-1"
+                            data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab"
+                            aria-controls="course-pills-tabs-1" aria-selected="false">
+                            <mat-icon class="fs-2"> picture_in_picture</mat-icon><span class="ps-4 pb-1">Investors
+                            </span></a></li>
+
+                </ul>
+            </li>
             <li class="nav-item mb-3">
                 <a class="nav-link text-white d-flex justify-content-between" data-bs-toggle="collapse"
                     href="#collapsepage2" role="button" aria-expanded="false" aria-controls="1">
@@ -60,13 +100,15 @@
                     <div><mat-icon>keyboard_arrow_down</mat-icon></div>
                 </a>
                 <!-- Submenu -->
-                <ul class="nav collapse flex-column mt-2  ms-3" id="collapsepage2" data-bs-parent="#navbar-sidebar" style="background-color: #7e94a5;">
+                <ul class="nav collapse flex-column mt-2  ms-3" id="collapsepage2" data-bs-parent="#navbar-sidebar"
+                    style="background-color: #7e94a5;">
                     <li class="nav-item ">
                         <a href="javascript: void(0)" (click)="appService.openSection('cfrp');"
                             class="nav-link text-white d-flex align-items-center" id="course-pills-tab-1"
                             data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab"
                             aria-controls="course-pills-tabs-1" aria-selected="false">
-                            <mat-icon class="fs-5"> picture_in_picture</mat-icon><span class="ps-4 pb-1">Offering Content
+                            <mat-icon class="fs-5"> picture_in_picture</mat-icon><span class="ps-4 pb-1">Offering
+                                Content
                             </span></a>
                     </li>
                     <li class="nav-item ">
@@ -77,7 +119,7 @@
                             <mat-icon class="fs-5"> picture_in_picture</mat-icon><span class="ps-4 pb-1">Offering Image
                             </span></a>
                     </li>
-                    
+
                 </ul>
             </li>
             <li class="nav-item mb-3"><a href="javascript: void(0)" (click)="appService.openSection('blogNews');"
@@ -90,7 +132,11 @@
                     data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1"
                     aria-selected="false">
                     <mat-icon class="fs-2"> input</mat-icon><span class="ps-4 pb-1">Join Us </span></a></li>
-
+            <li class="nav-item mb-3"><a href="javascript: void(0)" (click)="appService.openSection('letsTalk');"
+                    class="nav-link text-white d-flex align-items-center" id="course-pills-tab-1" data-bs-toggle="pill"
+                    data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1"
+                    aria-selected="false">
+                    <mat-icon class="fs-2"> input</mat-icon><span class="ps-4 pb-1">Lets Talk </span></a></li>
         </ul>
         <!-- Tabs END -->
     </mat-sidenav>
@@ -139,6 +185,15 @@
                 <div *ngIf="appService.team">
                     <app-team></app-team>
                 </div>
+                <div *ngIf="appService.advisory">
+                    <app-advisory></app-advisory>
+                </div>
+                <div *ngIf="appService.partner">
+                    <app-partner></app-partner>
+                </div>
+                <div *ngIf="appService.investors">
+                    <app-investors></app-investors>
+                </div>
                 <div *ngIf="appService.offering">
                     <app-offering></app-offering>
                 </div>
@@ -151,7 +206,9 @@
                 <div *ngIf="appService.joinus">
                     <app-join-us></app-join-us>
                 </div>
-
+                <div *ngIf="appService.letsTalk">
+                    <app-lets-talk></app-lets-talk>
+                </div>
             </div>
             <!-- nav content -->
             <div class="main">

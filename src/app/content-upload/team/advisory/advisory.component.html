@@ -1,28 +1,44 @@
 <section class="mx-2 p-3 card bg-white rounded-0">
     <div class="ms-2 d-flex justify-content-between align-items-center">
-        <h2 class="ps-3 fw-bold">Join Us List</h2>
+        <h2 class="ps-3 fw-bold">Advisory List</h2>
     </div>
     <!-- Add Nav-Item button -->
     <div class="mx-2 mb-4">
-        <button type="submit" (click)="openAddJoinUsModal()" mat-raised-button class="mx-2"
-        style="background-color: #1b8596; color: white;">Add Join Us</button>
+        <button type="submit" (click)="openAddAdvisoryModal()" mat-raised-button class="mx-2"
+        style="background-color: #1b8596; color: white;">Add Advisory</button>
     </div> 
 
     <!-- Table data -->
-    <mat-table [dataSource]="joinUsDataSource" matSort>
+    <mat-table [dataSource]="advisoryDataSource" matSort>
         <!-- ID Column -->
         <ng-container matColumnDef="id">
             <mat-header-cell *matHeaderCellDef mat-sort-header> S.No </mat-header-cell>
             <mat-cell *matCellDef="let i=index"> {{this.paginator.pageIndex * this.paginator.pageSize + i + 1}} </mat-cell>
         </ng-container>
-        <!-- Navbar  Column -->
-        <ng-container matColumnDef="content">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>Content </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.content}} </mat-cell>
+        <!-- Name  Column -->
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
         </ng-container>
-        <ng-container matColumnDef="mail">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>Mail </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.mail}} </mat-cell>
+        <!-- desg Column -->
+        <ng-container matColumnDef="desg">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Designation </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.designation}} </mat-cell>
+        </ng-container>
+        <!-- Img Column -->
+        <ng-container matColumnDef="img" >
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Image </mat-header-cell>
+            <mat-cell *matCellDef="let element"> <img [src]="element.image" alt="img" width="50" height="50"> </mat-cell>
+        </ng-container>
+        <!-- About Column -->
+        <ng-container matColumnDef="about" >
+            <mat-header-cell *matHeaderCellDef mat-sort-header> About </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.about}} </mat-cell>
+        </ng-container>
+        <!-- Link Column -->
+        <ng-container matColumnDef="link">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Link </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.link}} </mat-cell>
         </ng-container>
         <!-- Edit Delete Column -->
         <ng-container matColumnDef="edit/delete" >
@@ -31,12 +47,12 @@
                 <ul class="list-unstyled p-2 px-3 mb-0">
                     <li>
                         <a class="d-flex text-decoration-none custom-icon"
-                            (click)="openEditJoinModal(element);" style="cursor: pointer;">
+                            (click)="openEditAdvisoryModal(element);" style="cursor: pointer;">
                             <mat-icon class=" px-1 ">edit</mat-icon> Edit
                         </a>
                     </li>
                     <li >
-                        <a class="d-flex text-decoration-none custom-icon" (click)="openDeleteJoinConfirm(element?.id)" style="cursor:pointer;">
+                        <a class="d-flex text-decoration-none custom-icon" (click)="openDeleteAdvisoryConfirm(element?.id)" style="cursor:pointer;">
                             <mat-icon class=" px-1 ">delete_outline</mat-icon> Delete
                         </a>
                     </li>
@@ -53,10 +69,10 @@
                 No data available to show.
             </mat-footer-cell>
         </ng-container>
-        <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':joinUsDataSource!=null}">
+        <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':advisoryDataSource!=null}">
         </mat-footer-row>
         <mat-footer-row *matFooterRowDef="['noData']"
-            [ngClass]="{'hide':!(joinUsDataSource!=null && joinUsDataSource.data.length==0)}">
+            [ngClass]="{'hide':!(advisoryDataSource!=null && advisoryDataSource.data.length==0)}">
         </mat-footer-row>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
@@ -76,18 +92,20 @@
         
         <ng-template #deleteNavConfirm>
             <div mat-dialog-title>
-                <span>Delete Join Us?</span>
+                <span>Delete Team Item?</span>
             </div>
             <hr/>
             <div mat-dialog-content>
                 <p>
-                    Do you really want to delete the Join Us?</p>
+                    Do you really want to delete the Team Item?</p>
             </div>
             <hr/>
             <div mat-dialog-actions class="justify-content-between m-2">
                 <button mat-button (click)="closeModal()">Cancel</button>
-                <button style="color: black;" mat-button (click)="deleteJoinUsItem()" cdkFocusInitial>Ok</button>
+                <button style="color: black;" mat-button (click)="deleteAdvisoryItem()" cdkFocusInitial>Ok</button>
             </div>
         </ng-template>
 </section>
+
+
 

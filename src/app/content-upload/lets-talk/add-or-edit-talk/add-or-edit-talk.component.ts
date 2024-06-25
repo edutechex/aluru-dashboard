@@ -1,16 +1,16 @@
 import { Component, Inject, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { addJoinUs, editJoinUs } from 'src/app/app.model';
+import { addLetsTalk, editLetsTalk } from 'src/app/app.model';
 import { AppService } from 'src/app/app.service';
 
 @Component({
-  selector: 'app-add-or-edit-join-us',
-  templateUrl: './add-or-edit-join-us.component.html',
-  styleUrls: ['./add-or-edit-join-us.component.css']
+  selector: 'app-add-or-edit-talk',
+  templateUrl: './add-or-edit-talk.component.html',
+  styleUrls: ['./add-or-edit-talk.component.css']
 })
-export class AddOrEditJoinUsComponent implements OnInit{
-  addEditJoinUsForm: any = FormGroup;
+export class AddOrEditTalkComponent implements OnInit{
+  addEditTalkForm: any = FormGroup;
   success: boolean = false;
   err: boolean = false;
 
@@ -20,41 +20,40 @@ export class AddOrEditJoinUsComponent implements OnInit{
     public fb : FormBuilder,
     public dialog : MatDialog,
 
-    private dialogref : MatDialogRef<AddOrEditJoinUsComponent>,
+    private dialogref : MatDialogRef<AddOrEditTalkComponent>,
     @Inject(MAT_DIALOG_DATA) public datas:any,
   ){
 
-    this.addEditJoinUsForm = this.fb.group({
-      content : new FormControl('',[Validators.required]),
-      mail : new FormControl('',[Validators.required])
+    this.addEditTalkForm = this.fb.group({
+      name : new FormControl('',[Validators.required]),
+      adress : new FormControl('',[Validators.required]),
     })
   }
 
   ngOnInit(): void {
-    this.addEditJoinUsForm.patchValue(this.datas);
+    this.addEditTalkForm.patchValue(this.datas);
   }
 
-  addeditJionUs(){
-    if(this.addEditJoinUsForm.valid){
+  addeditTalk(){
+    if(this.addEditTalkForm.valid){
       if(this.datas){
-        const editJoinData : editJoinUs = {
+        const editTalkData : editLetsTalk = {
           id : this.datas.id,
-          content : this.addEditJoinUsForm.controls['content'].value,
-          mail : this.addEditJoinUsForm.controls['mail'].value
+          name : this.addEditTalkForm.controls['name'].value,
+          adress : this.addEditTalkForm.controls['adress'].value
         }
-        this.editJoinUsForm(editJoinData);
+        this.editTalkForm(editTalkData);
       }else{
-        const addJoinUsData : addJoinUs = {
-          content : this.addEditJoinUsForm.controls['content'].value,
-          mail : this.addEditJoinUsForm.controls['mail'].value
+        const addTalkData : addLetsTalk = {
+          name : this.addEditTalkForm.controls['name'].value,
+          adress : this.addEditTalkForm.controls['adress'].value
         }
-        this.addJoinUsForm(addJoinUsData);
+        this.addTalkForm(addTalkData);
       }
     }
   }
-
-  addJoinUsForm(addJoin : addJoinUs){
-    this.appService.addJoinUs(addJoin).subscribe({
+  addTalkForm(data: any){
+    this.appService.addLetsTalk(data).subscribe({
       next:(res)=>{
         this.closeModal();
         this.success = true;
@@ -69,8 +68,8 @@ export class AddOrEditJoinUsComponent implements OnInit{
     })
   }
 
-  editJoinUsForm(editjoin: editJoinUs){
-    this.appService.updateJoinUs(editjoin).subscribe({
+  editTalkForm(data: any){
+    this.appService.updateLetsTalk(data).subscribe({
       next:(res)=>{
         this.closeModal();
         this.success = true;
@@ -100,4 +99,5 @@ export class AddOrEditJoinUsComponent implements OnInit{
       }, timeout);
     });
   }
+
 }
